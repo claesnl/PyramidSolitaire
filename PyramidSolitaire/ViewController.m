@@ -30,12 +30,13 @@
     
     // Shuffle cards:
     for (int i=0; i<52; i++){
-        NSUInteger randomIndex = random() % 52;
-        NSInteger temp = cards[i];
-        cards[i] = cards[randomIndex];
-        cards[randomIndex] = temp;
+        NSUInteger randomIndex = arc4random() % 52;
+        NSLog(@"SWAPPING: %d and %d",i,randomIndex);
+        NSInteger temp = cards[randomIndex];
+        cards[randomIndex] = cards[i];
+        cards[i] = temp;
     }
-    
+
     // Place cards out
     for (int i = 0; i<[cardsAtTable count]; i++) {
         NSInteger cardType = cards[i]/13;
