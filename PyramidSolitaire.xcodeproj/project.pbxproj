@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9841ED9314F1A8F9004B212F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9841ED9214F1A8F9004B212F /* Default.png */; };
 		9897467814E48C0300FB3260 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9897467714E48C0300FB3260 /* UIKit.framework */; };
 		9897467A14E48C0300FB3260 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9897467914E48C0300FB3260 /* Foundation.framework */; };
 		9897467C14E48C0300FB3260 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9897467B14E48C0300FB3260 /* CoreGraphics.framework */; };
@@ -142,6 +143,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9841ED9214F1A8F9004B212F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		9897467314E48C0300FB3260 /* PyramidSolitaire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PyramidSolitaire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9897467714E48C0300FB3260 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9897467914E48C0300FB3260 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -299,6 +301,7 @@
 		9897466814E48C0300FB3260 = {
 			isa = PBXGroup;
 			children = (
+				9841ED9214F1A8F9004B212F /* Default.png */,
 				989746B114E48F9100FB3260 /* icon.png */,
 				9897467D14E48C0300FB3260 /* PyramidSolitaire */,
 				9897469E14E48C0400FB3260 /* PyramidSolitaireTests */,
@@ -667,6 +670,7 @@
 				98B9490214E597F800887AE8 /* spades_11_.png in Resources */,
 				98B9490314E597F800887AE8 /* spades_12_.png in Resources */,
 				98B9490414E597F800887AE8 /* spades_13_.png in Resources */,
+				9841ED9314F1A8F9004B212F /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
