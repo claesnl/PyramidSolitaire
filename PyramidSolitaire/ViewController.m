@@ -31,7 +31,7 @@
     // Shuffle cards:
     for (int i=0; i<52; i++){
         NSUInteger randomIndex = arc4random() % 52;
-        NSLog(@"SWAPPING: %d and %d",i,randomIndex);
+        //NSLog(@"SWAPPING: %d and %d",i,randomIndex);
         NSInteger temp = cards[randomIndex];
         cards[randomIndex] = cards[i];
         cards[i] = temp;
@@ -50,8 +50,10 @@
     
     // Reset deck
     cardsInDeckPointer = -1;
-    [cardDeckRight1 setImage:[UIImage imageNamed:@"cards_empty"] forState:UIControlStateNormal];
-    [cardDeckRight2 setImage:[UIImage imageNamed:@"cards_empty"] forState:UIControlStateNormal];
+    //[cardDeckRight1 setImage:[UIImage imageNamed:@"cards_empty"] forState:UIControlStateNormal];
+    //[cardDeckRight2 setImage:[UIImage imageNamed:@"cards_empty"] forState:UIControlStateNormal];
+    cardDeckRight1.hidden = YES;
+    cardDeckRight2.hidden = YES;
     [cardDeckLeft setImage:[UIImage imageNamed:@"cards_back"] forState:UIControlStateNormal];
     cardDeckLeft.hidden = NO;
     
@@ -295,20 +297,36 @@
             [self toggleCard:actvTag:NO];
         actvTag = -1;
         if(cardsInDeckPointer < nrOfCardsInDeck){
+            //NSLog(@"CDP: %d",cardsInDeckPointer);
             if((cards[cardsInDeckPointer+29] % 13)+1==0)
                 cardsInDeckPointer--;
+            //NSLog(@"CDP: %d",cardsInDeckPointer);
             if(cardsInDeckPointer > -1){
+            //if(cardDeckRight1.hidden==NO){
                 NSInteger cardType = cards[cardsInDeckPointer+28]/13;
                 NSInteger cardValue = (cards[cardsInDeckPointer+28] % 13)+1;
                 [cardDeckRight2 setImage:[UIImage imageNamed: [NSString stringWithFormat:@"%@_%d",[cardTypes objectAtIndex:cardType],cardValue]] forState:UIControlStateNormal];
+                //NSLog(@"UPDATED CDR2");
+                if(cardDeckRight2.hidden == YES){
+                    //NSLog(@"HIDDEN=NO TO CDR2");
+                    cardDeckRight2.hidden = NO;
+                }
             } else
-                [cardDeckRight2 setImage:[UIImage imageNamed:@"cards_empty"] forState:UIControlStateNormal];
+                cardDeckRight2.hidden = YES;
+                //[cardDeckRight2 setImage:[UIImage imageNamed:@"cards_empty"] forState:UIControlStateNormal];
             cardsInDeckPointer++;
             NSInteger cardType = cards[cardsInDeckPointer+28]/13;
             NSInteger cardValue = (cards[cardsInDeckPointer+28] % 13)+1;
             [cardDeckRight1 setImage:[UIImage imageNamed: [NSString stringWithFormat:@"%@_%d",[cardTypes objectAtIndex:cardType],cardValue]] forState:UIControlStateNormal];
-            if(cardsInDeckPointer==-1)
-                [cardDeckRight1 setImage:[UIImage imageNamed:@"cards_empty"] forState:UIControlStateNormal];
+            if(cardDeckRight1.hidden == YES){
+                cardDeckRight1.hidden = NO;
+            }
+            if(cardsInDeckPointer<0)
+            {
+                cardDeckRight1.hidden = YES;
+                //[cardDeckRight1 setImage:[UIImage imageNamed:@"cards_empty"] forState:UIControlStateNormal];
+        
+            }
         }
         if(cardsInDeckPointer == nrOfCardsInDeck || cards[cardsInDeckPointer+29]==-1)
             cardDeckLeft.hidden = YES;
